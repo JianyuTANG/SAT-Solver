@@ -41,21 +41,8 @@ public:
 		roots(phi.num_variable + 1, std::set<int>()),
 		time_stamp(phi.num_variable + 1, 0),
 		mp(phi.num_variable + 1, 0),
-		visited(phi.num_variable + 1, 0),
-		related_clauses(phi.num_variable + 1, std::vector<int>())
+		visited(phi.num_variable + 1, 0)
 	{
-		int n = phi.clauses.size();
-		for (int i = 0; i < n; i++)
-			cur_space.insert(i);
-		/*for (auto iter=this->phi.clauses.begin();iter!=this->phi.clauses.end();iter++)
-		{
-			std::sort((*iter).begin(), (*iter).end(), [](int x, int y) {
-				return VAR(x) < VAR(y);
-				});
-		}
-		std::sort(phi.clauses.begin(), phi.clauses.end(), [](const auto& x, const auto& y) {
-			return VAR(x[0]) < VAR(y[0]);
-			});*/
 	}
 
     /**
@@ -94,8 +81,6 @@ private:
 	std::vector<std::set<int>> roots;
 	unsigned long long cur_time;
 	std::vector<unsigned long long> time_stamp;
-	std::vector<std::vector<int>> related_clauses;
-	std::set<int> cur_space;
 };
 
 

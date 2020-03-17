@@ -7,8 +7,6 @@
 #include <iostream>
 
 
-int decision_time = 0;
-
 literal DPLL::propagate_noncdcl()
 {
 	bool exist_unit = true;
@@ -276,7 +274,7 @@ void DPLL::make_decision_noncdcl(std::default_random_engine& random, std::bernou
 				mp[i] = -1;
 				temp *= -1;
 			}
-			decision_time++;
+			// decision_time++;
 			st.push(choice(temp, DECIDE));
 			remaining_var--;
 			return;
@@ -306,7 +304,7 @@ void DPLL::make_decision(std::default_random_engine& random, std::bernoulli_dist
 				mp[i] = -1;
 				temp *= -1;
 			}
-			decision_time++;
+			// decision_time++;
 			st.push(choice(temp, DECIDE));
 			decision_st.push(temp);
 			roots[i].clear();
